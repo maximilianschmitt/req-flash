@@ -10,10 +10,10 @@ var _flash = function(container, key, message) {
 	}
 };
 
-var _render = function(render, req, res) {
+var _clear = function(hijack, req, res) {
 	req.session._flash = {};
 
-	render.apply(res, Array.prototype.slice.call(arguments).slice(3));
+	hijack.apply(res, Array.prototype.slice.call(arguments).slice(3));
 };
 
 var flash = function(req, res, next) {
@@ -22,7 +22,8 @@ var flash = function(req, res, next) {
 	if (typeof req.session._flash === 'undefined') req.session._flash = {};
 
 	req.flash = _flash.bind(null, req.session._flash);
-	res.render = _render.bind(null, res.render, req, res);
+	res.render = _clear.bind(null, res.render, req, res);
+	res.send = _clear.bind(null, res.send, req, res);
 
 	next();
 };

@@ -59,4 +59,18 @@ describe('req-flash', function() {
 			done();
 		});
 	});
+
+	it('should clear flash messages', function(done) {
+		agent.get(url + '/stack')
+		.redirects(1)
+		.end(function() {
+			agent.get(url + '/flash')
+			.redirects(0)
+			.end(function(err, res) {
+				expect(res.text).to.equal('{}');
+
+				done();
+			});
+		});
+	});
 });
