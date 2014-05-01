@@ -1,7 +1,7 @@
 req-flash
 =========
 
-Unopinionated middleware for creating flash messages of all types for Express apps
+Unopinionated middleware for creating flash messages of all types for Express apps.
 
 ## Usage
 
@@ -39,4 +39,13 @@ app.get('/test', function() {
 app.get('/', function() {
 	res.send(req.flash());
 });
+```
+
+"/test" redirects to "/" and outputs:
+
+```
+{
+	"successMessage": "You are successfully using req-flash",
+	"errorMessage": "No errors, you're doing fine"
+}
 ```
