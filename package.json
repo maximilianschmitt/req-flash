@@ -1,0 +1,30 @@
+{
+  "name": "req-flash",
+  "version": "0.0.1",
+  "description": "Unopinionated middleware for creating flash messages of all types for Express apps.",
+  "keywords": [
+    "express",
+    "middleware",
+    "flash"
+  ],
+  "homepage": "https://github.com/maximilianschmitt/req-flash",
+  "bugs": "https://github.com/maximilianschmitt/req-flash/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Maximilian Schmitt",
+    "email": "maximilian.schmitt@googlemail.com",
+    "url": "http://maximilianschmitt.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maximilianschmitt/req-flash.git"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "superagent": "^0.18.0",
+    "mocha": "^1.18.2",
+    "express": "^4.1.1",
+    "cookie-parser": "^1.0.1",
+    "express-session": "^1.0.4"
+  }
+}
