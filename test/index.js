@@ -4,7 +4,7 @@
 var superagent = require('superagent');
 var expect     = require('chai').expect;
 
-var app        = require('./app');
+var app        = require('../examples/app');
 var port       = 8888;
 var url        = 'http://localhost:' + port;
 
@@ -71,6 +71,16 @@ describe('req-flash', function() {
 
 				done();
 			});
+		});
+	});
+
+	it('should pass flash messages to the view automatically', function(done) {
+		agent.get(url + '/view')
+		.redirects(1)
+		.end(function(err, res) {
+			expect(res.text).to.contain('You are viewing a flash message inside a view.');
+
+			done();
 		});
 	});
 });

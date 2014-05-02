@@ -26,6 +26,8 @@ app.use(session({ secret: '123' }));
 app.use(flash());
 ```
 
+**Tipp:** Use `flash({ locals: 'flash' })` to magically make all flash messages available to your views by attaching them to `res.locals['flash']` (or whatever you specifiy instead of 'flash').
+
 ### 3. Flash any amount of messages:
 
 ``` javascript

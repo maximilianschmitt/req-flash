@@ -7,9 +7,12 @@ var flash        = require('..');
 
 var app = express();
 
+app.set('view engine', 'jade');
+app.set('views', __dirname + '/views');
+
 app.use(cookieParser());
 app.use(session({ secret: '123' }));
-app.use(flash());
+app.use(flash({ locals: 'flash' }));
 
 app.get('/', function(req, res) {
 	req.flash('message', 'index');
@@ -31,6 +34,15 @@ app.get('/stack', function(req, res) {
 app.get('/flash', function(req, res) {
 	var messages = req.flash();
 	res.send(messages);
+});
+
+app.get('/view', function(req, res) {
+	req.flash('message', 'You are viewing a flash message inside a view.');
+	res.redirect('/flash-view');
+});
+
+app.get('/flash-view', function(req, res) {
+	res.render('view');
 });
 
 module.exports = app;
