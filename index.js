@@ -33,7 +33,7 @@ var flash = function(req, res, next) {
 };
 
 module.exports = function(options) {
-	if (options.locals) {
+	if (options!=null && options.locals) {
 		localsKey = options.locals;
 	}
 
