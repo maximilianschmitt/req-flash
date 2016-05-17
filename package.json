@@ -1,6 +1,6 @@
 {
   "name": "req-flash",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Unopinionated middleware for creating flash messages of all types for Express apps.",
   "scripts": {
     "test": "mocha"
