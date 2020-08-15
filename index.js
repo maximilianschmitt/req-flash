@@ -25,7 +25,7 @@ var flash = function(req, res, next) {
 
 	req.flash = _flash.bind(null, req.session._flash);
 	res.render = _clear.bind(null, res.render, req, res);
-	res.send = _clear.bind(null, res.send, req, res);
+	res.sendStatus = _clear.bind(null, res.sendStatus, req, res);
 
 	if (localsKey) res.locals[localsKey] = req.flash();
 
